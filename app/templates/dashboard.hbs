@@ -1,0 +1,13 @@
+{{page-title "Dashboard"}}
+{{!-- <div
+  
+  draggable="true"
+  {{on 'dragstart' this.handleDragover}}
+  {{on 'drop' this.handleDrop}}
+>
+  <input type="file" accept="image/png, image/jpg, .pdf, .doc" {{on 'change' this.handleImage}} hidden>
+</div> --}}
+
+<DropZone @onFileDropped={{this.handleDroppedFile}} />
+
+<button type="button" {{on 'click' this.handleSubmit}}>Submit</button>

@@ -1,0 +1,23 @@
+{{page-title "Login"}}
+<form class="" {{on "submit" this.authenticate}}>
+  <div class="flex justify-between text items-center">
+    <label for="email">Email:</label>
+    <input type="text" id="email" {{on "change" (fn this.updateForm "email")}}>
+  </div>
+
+  <div class="flex justify-between items-center">
+    <label for="password">Password:</label>
+    <input type="password" id="password" {{on "change" (fn this.updateForm "password")}}>
+  </div>
+
+  <div class="flex justify-between items-center mt-4">
+    <button type="submit">Login</button>
+
+    <LinkTo @route="forgot-password">Forgot password?</LinkTo>    
+  </div>
+
+
+  {{#if this.errorMessage}}
+    <p style="color: red;">{{this.errorMessage}}</p>
+  {{/if}}
+</form>

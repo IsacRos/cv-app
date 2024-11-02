@@ -1,0 +1,24 @@
+<div 
+    {{on "drop" this.dropItem}} 
+    {{on "dragover" this.dragOver}}
+    {{on "dragleave" this.dropLeave}}
+    {{on "dragenter" this.dropEnter}}
+    class="dropZone w-56 h-56 flex items-center justify-center text-center border-4 rounded-lg m-4 border-primary {{if this.overDropZone "dropZone-over bg-neutral"}}"
+>
+  {{#if this.errorMessage}}
+    {{this.errorMessage}}
+  {{else if this.fileDropped}}
+    File dropped
+  {{else}}
+    Drop CV here
+  {{/if}}
+</div>
+
+{{!-- <div 
+    {{on "dragstart" this.dragHasStarted}}
+    class="dragMe" 
+    draggable="true"
+    role="button"
+>   
+    Drag Me
+</div> --}}

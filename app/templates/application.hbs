@@ -1,5 +1,26 @@
-{{page-title "CvApp"}}
+{{page-title "FirstAppFe"}}
 
-<h2 id="title">Welcome to Ember</h2>
+<button type="button" {{on 'click' this.checkToken}} class="w-full h-5 bg-black"></button>
 
-{{outlet}}
+<nav class="w-full h-20 bg-primary flex justify-center">
+  <div class="h-full p-2 w-full max-w-screen-lg flex items-center justify-between">
+    <img class="h-full" src="images/IrossoundsLogoTRANS.png" alt="">
+
+    <div class="text-tertiary flex gap-16">
+      {{#if this.session.isAuthenticated}}
+        Hello {{this.auth.getUser}}
+        <a type="button" {{on 'click'  this.auth.logout}}>Log out</a>
+      {{else}}
+        <LinkTo @route="sign-up">Register</LinkTo>
+        <LinkTo @route="login">Login</LinkTo>
+      {{/if}}
+    </div>
+  </div>
+</nav>
+
+<div class="flex flex-col absolute top-[25%] items-center">
+  {{outlet}}
+</div>
+
+
+

@@ -1,0 +1,54 @@
+{{page-title "SignUp"}}
+<h1>Sign up</h1>
+{{#if this.registered}}
+  <h2>Thank you for registering. You can now log in</h2>
+{{else}}
+  <form class="flex flex-col items-center" {{on 'submit' this.handleSubmit}}>
+    <div class="flex items-center gap-5 justify-between w-full">
+      <label for="first_name">First name: </label>
+      <input 
+        type="text"   
+        id="first_name"
+        {{on 'input' this.handleChange}}
+        required="true"
+      >
+    </div>
+    <div class="flex items-center gap-5 justify-between w-full">
+      <label for="last_name">Last name: </label>
+      <input 
+        type="text"   
+        id="last_name"
+        {{on 'input' this.handleChange}}
+        required="true"
+      >
+    </div>
+    <div class="flex items-center gap-5 justify-between w-full">
+      <label for="email">Email: </label>
+      <input 
+        type="email"  
+        id="email"
+        {{on 'input' this.handleChange}}
+        required="true"
+      >
+    </div>
+    <div class="flex items-center gap-5 justify-between w-full">
+      <label for="password">Password: </label>
+      <input 
+        type="password"   
+        id="password"
+        {{on 'input' this.handleChange}}
+        required="true"
+      >
+    </div>
+    <div class="flex items-center gap-5 justify-between w-full">
+      <label for="password_confirmation">Confirm password: </label>
+      <input 
+        type="password"
+        id="password_confirmation"
+        {{on 'input' this.handleChange}}
+        required="true"
+      >
+    </div>
+    <button class="m-5" type="submit">Go!</button>
+  </form>
+{{/if}}
