@@ -8,19 +8,19 @@ export default class DropZone extends Component {
   @tracked errorMessage = '';
   @tracked fileDropped = false;
 
-  allowedFileTypes = ['image/jpeg', 'image/png', 'application/pdf', '.doc']
+  allowedFileTypes = ['image/jpeg', 'image/png', 'application/pdf', '.doc'];
 
   @action dropItem(e) {
     e.preventDefault();
     const file = e.dataTransfer.files[0];
 
-    if(file.length < 1) {
-      this.errorMessage = "No file added"
+    if (file.length < 1) {
+      this.errorMessage = 'No file added';
     } else if (!this.allowedFileTypes.includes(file.type)) {
-      this.errorMessage = "Wrong file type. Drop a valid file please!"
+      this.errorMessage = 'Wrong file type. Drop a valid file please!';
     } else {
-      this.args.onFileDropped(file)
-      this.errorMessage = ''
+      this.args.onFileDropped(file);
+      this.errorMessage = '';
       this.fileDropped = true;
     }
     this.overDropZone = false;
@@ -39,5 +39,4 @@ export default class DropZone extends Component {
     this.statusText = 'Drag is entered Drop Zone';
     this.overDropZone = true;
   }
-
 }

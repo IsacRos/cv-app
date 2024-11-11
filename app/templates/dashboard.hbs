@@ -1,13 +1,32 @@
 {{page-title "Dashboard"}}
-{{!-- <div
-  
-  draggable="true"
-  {{on 'dragstart' this.handleDragover}}
-  {{on 'drop' this.handleDrop}}
->
-  <input type="file" accept="image/png, image/jpg, .pdf, .doc" {{on 'change' this.handleImage}} hidden>
-</div> --}}
 
-<DropZone @onFileDropped={{this.handleDroppedFile}} />
 
-<button type="button" {{on 'click' this.handleSubmit}}>Submit</button>
+<h1>Submit your CV to get roasted!</h1>
+
+<div class="flex flex-col items-center h-[26vh]">
+  {{#if this.loading}}
+    <h1>...Loading</h1>
+  {{else}}
+    <DropZone @onFileDropped={{this.handleDroppedFile}} />
+    <button type="button" {{on 'click' this.handleSubmit}}>Roast!</button>
+  {{/if}}
+</div>
+
+
+
+<h1>
+  {{#if this.error}}
+    {{this.error}}
+  {{/if}}
+</h1>
+
+<h2 class="mt-10">Previous roasts</h2>
+
+{{#each this.cutRoast as |roast|}}
+  <LinkTo @route="roast-details" @model="{{roast.roast_id}}" class="flex gap-6 my-5 items-center cursor-pointer" >
+    <img src={{roast.imgUrl}} width="100px" alt="">
+    {{roast.text}}
+  </LinkTo>
+{{else}}
+Nothing here so far...
+{{/each}}

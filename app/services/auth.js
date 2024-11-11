@@ -34,6 +34,6 @@ export default class AuthService extends Service {
 
   @action
   getUser() {
-    return this.session.data.authenticated.responseData.data.first_name;
+    return this.session.data.authenticated.responseData.data;
   }
 }

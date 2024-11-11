@@ -26,6 +26,11 @@ export default class ApplicationController extends Controller {
     console.log(response);
   }
 
+  @action
+  getUserName() {
+    const user = this.auth.getUser();
+    return user.first_name;
+  }
   // updateUser() {
   //   if (this.session.isAuthenticated) {
   //     this.user = this.session.data.authenticated.responseData.data.email;

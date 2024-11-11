@@ -11,4 +11,5 @@ Router.map(function () {
   this.route('forgot-password');
   this.route('sign-up');
   this.route('dashboard');
+  this.route('roast-details', { path: 'roast-details/:roast_id' });
 });

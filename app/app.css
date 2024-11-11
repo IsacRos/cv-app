@@ -7,6 +7,10 @@
     @apply font-sans font-bold text-5xl m-10;
   }
 
+  h2 {
+    @apply font-sans font-bold text-3xl m-10;
+  }
+
   body {
     @apply font-mono text-primary relative;
   }

@@ -2,24 +2,26 @@
 
 <button type="button" {{on 'click' this.checkToken}} class="w-full h-5 bg-black"></button>
 
-<nav class="w-full h-20 bg-primary flex justify-center">
-  <div class="h-full p-2 w-full max-w-screen-lg flex items-center justify-between">
-    <img class="h-full" src="images/IrossoundsLogoTRANS.png" alt="">
+<div class="w-full flex flex-col relative justify-center items-center">
+  <nav class="w-full h-20 bg-primary flex justify-center fixed top-0">
+    <div class="h-full p-2 w-full max-w-screen-lg flex items-center justify-between">
+      <LinkTo @route="dashboard" class="text-tertiary" style="font-size: 70px; font-family: Passions Conflict, cursive;">CV Roast</LinkTo>
 
-    <div class="text-tertiary flex gap-16">
-      {{#if this.session.isAuthenticated}}
-        Hello {{this.auth.getUser}}
-        <a type="button" {{on 'click'  this.auth.logout}}>Log out</a>
-      {{else}}
-        <LinkTo @route="sign-up">Register</LinkTo>
-        <LinkTo @route="login">Login</LinkTo>
-      {{/if}}
+      <div class="text-tertiary flex gap-16">
+        {{#if this.session.isAuthenticated}}
+          Hello {{this.getUserName}}
+          <a type="button" {{on 'click'  this.auth.logout}}>Log out</a>
+        {{else}}
+          <LinkTo @route="sign-up">Register</LinkTo>
+          <LinkTo @route="login">Login</LinkTo>
+        {{/if}}
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<div class="flex flex-col absolute top-[25%] items-center">
-  {{outlet}}
+  <div class="flex flex-col mt-20 justify-center h-full items-center max-w-screen-lg">
+    {{outlet}}
+  </div>
 </div>
 
 

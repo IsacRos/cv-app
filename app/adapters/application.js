@@ -1,10 +1,11 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
 import { computed } from '@ember/object';
-import { inject } from '@ember/service';
+import { inject as service } from '@ember/service';
 
 export default class ApplicationAdapter extends JSONAPIAdapter {
-  namespace = 'api';
-  @inject session;
+  host = 'http://localhost:3001/api';
+  namespace = 'v1';
+  @service session;
 
   @computed(
     'session.data.authenticated.token',
@@ -14,7 +15,7 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
   get headers() {
     let headers = {};
     if (this.session.isAuthenticated) {
-      headers['Authorization'] = this.session.data.token;
+      headers['Authorization'] = this.session.data.authenticated.token;
     }
 
     return headers;
