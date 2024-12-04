@@ -17,6 +17,7 @@ export default class LoginController extends Controller {
     const authenticator = 'authenticator:token';
     try {
       await this.session.authenticate(authenticator, this.email, this.password);
+      console.log(response);
     } catch (err) {
       this.error = err;
       console.log(err);

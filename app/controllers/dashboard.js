@@ -39,10 +39,9 @@ export default class DashboardController extends Controller {
     if (response.ok) {
       const data = await response.json();
       this.router.transitionTo('roast-details', data.roast.id);
-    }
-    else {
-      const data = await response.json()
-      this.error = data.error
+    } else {
+      const data = await response.json();
+      this.error = data.error;
     }
     this.loading = false;
   }
